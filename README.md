@@ -9,3 +9,6 @@ TODO:
 Parallax Effect Home Page with own version of Images/Theme
 Projects Page
 Skill Page
+
+LIBRARY USED:
+Bootstrap for Cards in Projects Page
