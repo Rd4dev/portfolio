@@ -124,14 +124,8 @@ section #text span{
 
 .sec{
     position: relative;
-    /* display: grid; */
     padding: 100px;
-    /* width: 114em; */
-    /* grid-gap: 6rem; */
-    /* grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); */
-    /* align-items: start; */
     background: #094b65;
-    /* color: #fff; */
 }
 
 .sec h2{
