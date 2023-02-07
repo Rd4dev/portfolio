@@ -138,3 +138,18 @@ section #text span{
     font-size: 1em;
     color: #fff;
 }
+
+.row{
+    margin-top: 100px!important;
+    padding: 10px;
+    justify-content: center;
+}
+
+.col{
+    margin-left: 80px;
+}
+
+.col img{
+    margin-top: 10px;
+    margin: auto;
+}
