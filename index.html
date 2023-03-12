@@ -155,9 +155,6 @@
         var geometry = new THREE.BoxGeometry(1, 1, 1)
         var material = new THREE.MeshPhongMaterial({color: 0xFF0000, side: THREE.DoubleSide})
         var plane = new THREE.Mesh(geometry, material)
-        console.log(plane)
-        plane.receiveShadow = true
-        plane.castShadow = true
         scene.add(plane)
 
         function animate() {
