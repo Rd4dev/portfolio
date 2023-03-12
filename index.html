@@ -116,6 +116,58 @@
         </div>
     </div>
     </div>
+
+    //threejs
+    <div class=" text-center sec">
+        <h2>Three JS</h2>
+        <canvas id="scene"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.119.1/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.119.1/examples/jsm/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('scene'), alpha: true });
+
+        renderer.setSize(window.innerWidth/2, window.innerHeight/2);
+
+        var controls = new THREE.OrbitControls(camera, renderer.domElement)
+
+        var light = new THREE.AmbientLight(0xffffff);
+        scene.add(light)
+
+        var directionalLight = new THREE.DirectionalLight(0xffffff, 0.60)
+        directionalLight.position.set(0.11,0.85,0.04);
+        directionalLight.castShadow = true;
+        scene.add(directionalLight)
+
+        // var PointLight = new THREE.SpotLight(0xffffff, 0.1, 10)
+        // PointLight.position.set(0,1,4)
+        // PointLight.castShadow = true
+        // scene.add(PointLight)
+
+        // PointLight.shadow.mapSize.width = 512;
+
+        // Add plane
+        var geometry = new THREE.BoxGeometry(1, 1, 1)
+        var material = new THREE.MeshPhongMaterial({color: 0xFF0000, side: THREE.DoubleSide})
+        var plane = new THREE.Mesh(geometry, material)
+        console.log(plane)
+        plane.receiveShadow = true
+        plane.castShadow = true
+        scene.add(plane)
+
+        function animate() {
+          requestAnimationFrame( animate );
+          renderer.render( scene, camera );
+        }
+        animate();
+
+    </script>
+
     <script>
         let text = document.getElementById("text")
         let bird1 = document.getElementById("bird1")
