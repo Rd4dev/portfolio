@@ -123,11 +123,56 @@
 
     //threejs
     <div class=" text-center sec">
-        <h2>Three JS</h2>
-        <canvas id="scene"></canvas>
+    <h2>Three JS</h2>
+    <canvas id="scene">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      // Create a scene
+      const scene = new THREE.Scene();
+
+      // Create a camera
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+
+      // Create a renderer
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // Create a cube geometry
+      const geometry = new THREE.BoxGeometry();
+
+      // Create a material for the cube
+      const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+
+      // Create a mesh by combining the geometry and material
+      const cube = new THREE.Mesh(geometry, material);
+
+      // Add the cube to the scene
+      scene.add(cube);
+
+      // Set the camera position
+      camera.position.z = 5;
+
+      // Render the scene
+      function render() {
+        requestAnimationFrame(render);
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      }
+      render();
+    </script>
+
+    </canvas>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.119.1/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.119.1/examples/jsm/loaders/GLTFLoader.js"></script>
+
+    <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/build/three.min.js"></script>
     <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/controls/OrbitControls.js"></script>
 
@@ -143,10 +188,10 @@
         var light = new THREE.AmbientLight(0xffffff);
         scene.add(light)
 
-        var directionalLight = new THREE.DirectionalLight(0xffffff, 0.60)
-        directionalLight.position.set(0.11,0.85,0.04);
-        directionalLight.castShadow = true;
-        scene.add(directionalLight)
+        // var directionalLight = new THREE.DirectionalLight(0xffffff, 0.60)
+        // directionalLight.position.set(0.11,0.85,0.04);
+        // directionalLight.castShadow = true;
+        // scene.add(directionalLight)
 
         // var PointLight = new THREE.SpotLight(0xffffff, 0.1, 10)
         // PointLight.position.set(0,1,4)
@@ -156,18 +201,20 @@
         // PointLight.shadow.mapSize.width = 512;
 
         // Add plane
-        var geometry = new THREE.BoxGeometry(1, 1, 1)
-        var material = new THREE.MeshPhongMaterial({color: 0xFF0000, side: THREE.DoubleSide})
+        var geometry = new THREE.SphereGeometry()
+        var material = new THREE.MeshPhongMaterial({color: 0xFFff00, side: THREE.DoubleSide})
         var plane = new THREE.Mesh(geometry, material)
         scene.add(plane)
 
-        function animate() {
-          requestAnimationFrame( animate );
+        function render() {
+          requestAnimationFrame(render);
+          plane.rotation.x += 0.01;
+          plane.rotation.y += 0.01;
           renderer.render( scene, camera );
         }
-        animate();
+        render(); 
 
-    </script>
+    </script>-->
 
     <script>
         let text = document.getElementById("text")
