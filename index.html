@@ -125,7 +125,7 @@
     </div>
     </div> -->
 
-    <div class="text-center">
+    <div>
     <h2>Three JS</h2>
     <canvas id="scene">
 
@@ -147,17 +147,17 @@
 
       // Create a renderer
       const renderer = new THREE.WebGLRenderer({alpha: true});
-      renderer.setSize(window.innerWidth/2, window.innerHeight/2);
+      renderer.setSize(window.innerWidth / 1.5, window.innerHeight / 1.5);
       document.body.appendChild(renderer.domElement);
 
       //orbit controls
       var controls = new THREE.OrbitControls(camera, renderer.domElement)
 
       // Create a cube geometry
-      const geometry = new THREE.BoxGeometry();
+      const geometry = new THREE.SphereGeometry(2, 32, 16);
 
       // Create a material for the cube
-      const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      const material = new THREE.MeshBasicMaterial({ color: 0xc1a0fa });
 
       // Create a mesh by combining the geometry and material
       const cube = new THREE.Mesh(geometry, material);
