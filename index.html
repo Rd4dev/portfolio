@@ -126,7 +126,10 @@
     <h2>Three JS</h2>
     <canvas id="scene">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/build/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/controls/OrbitControls.js"></script>
+        
     <script>
       // Create a scene
       const scene = new THREE.Scene();
@@ -143,6 +146,9 @@
       const renderer = new THREE.WebGLRenderer();
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement);
+
+      //orbit controls
+      var controls = new THREE.OrbitControls(camera, renderer.domElement)
 
       // Create a cube geometry
       const geometry = new THREE.BoxGeometry();
