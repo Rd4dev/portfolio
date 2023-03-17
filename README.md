@@ -12,3 +12,6 @@ Skill Page
 
 LIBRARY USED:
 Bootstrap for Cards in Projects Page
+
+New Inspo:
+https://codepen.io/ste-vg/pen/GRooLza
