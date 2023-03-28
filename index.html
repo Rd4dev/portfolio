@@ -154,13 +154,25 @@
       var controls = new THREE.OrbitControls(camera, renderer.domElement)
 
       // Create a sphere geometry
-      const geometry = new THREE.SphereGeometry(2, 32, 16);
+      const sphereGeometry = new THREE.SphereGeometry(1.5, 32, 16);
 
-      // Create a material for the cube
-      const material = new THREE.MeshBasicMaterial({ color: 0xc1a0fa });
+      // Create a material for the sphere
+      const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xc1a0fa, wireframe: true });
 
       // Create a mesh by combining the geometry and material
-      const cube = new THREE.Mesh(geometry, material);
+      const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+      // Add the sphere to the scene
+      scene.add(sphere);
+
+      // Create a cube geometry
+      const cubeGeometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+
+      // Create a material for the cube
+      const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x99ff66, wireframe: true });
+
+      // Create a mesh by combining the geometry and material
+      const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
       // Add the cube to the scene
       scene.add(cube);
@@ -171,8 +183,14 @@
       // Render the scene
       function render() {
         requestAnimationFrame(render);
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
+
+        //sphere rotation
+        sphere.rotation.x += 0.004;
+        sphere.rotation.y += 0.004
+
+        //cube rotation
+        cube.rotation.x += 0.005;
+        cube.rotation.y += 0.005;
         renderer.render(scene, camera);
       }
       render();
